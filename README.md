@@ -1,0 +1,2 @@
+# ShareRestaurantApp
+GoogleMap上で飲食店情報を保存、共有できるiOSアプリ
