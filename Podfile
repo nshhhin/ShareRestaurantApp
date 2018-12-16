@@ -8,6 +8,7 @@ target 'ShareRestaurantApp' do
     pod 'RxSwift', '~>4.4.0'
     pod 'RxCocoa', '~>4.4.0'
     pod 'Alamofire', '~>4.7.3'
+    pod 'SwiftyJSON', '~>4.2.0'
 
   # Pods for ShareRestaurantApp
 

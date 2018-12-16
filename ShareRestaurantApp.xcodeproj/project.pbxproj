@@ -19,6 +19,8 @@
 		B92CA5EA21980E8100E89A53 /* ShareRestaurantAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92CA5E921980E8100E89A53 /* ShareRestaurantAppUITests.swift */; };
 		B9F3437321C51F260066395A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3437221C51F260066395A /* Constants.swift */; };
 		B9F3437921C525780066395A /* APIKeysConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3437821C525780066395A /* APIKeysConstants.swift */; };
+		B9F3437F21C646960066395A /* RequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3437E21C646960066395A /* RequestEntity.swift */; };
+		B9F3438121C648F60066395A /* ResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3438021C648F60066395A /* ResponseEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		B92CA5EB21980E8100E89A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9F3437221C51F260066395A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B9F3437821C525780066395A /* APIKeysConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeysConstants.swift; sourceTree = "<group>"; };
+		B9F3437E21C646960066395A /* RequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEntity.swift; sourceTree = "<group>"; };
+		B9F3438021C648F60066395A /* ResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseEntity.swift; sourceTree = "<group>"; };
 		BE81BE71FF3C7E6C925B0FA6 /* Pods-ShareRestaurantAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareRestaurantAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareRestaurantAppUITests/Pods-ShareRestaurantAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFB7233BA805BCF681F8E0EC /* Pods-ShareRestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareRestaurantApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareRestaurantApp/Pods-ShareRestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +199,8 @@
 		B9461AC0219FDFEB007D5E8C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				B9F3437E21C646960066395A /* RequestEntity.swift */,
+				B9F3438021C648F60066395A /* ResponseEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -394,6 +401,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -480,7 +488,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F3437921C525780066395A /* APIKeysConstants.swift in Sources */,
+				B9F3437F21C646960066395A /* RequestEntity.swift in Sources */,
 				B92CA5CC21980E8000E89A53 /* MapViewController.swift in Sources */,
+				B9F3438121C648F60066395A /* ResponseEntity.swift in Sources */,
 				B92CA5CA21980E8000E89A53 /* AppDelegate.swift in Sources */,
 				B9F3437321C51F260066395A /* Constants.swift in Sources */,
 			);
