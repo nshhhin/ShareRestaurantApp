@@ -14,17 +14,29 @@ import RxCocoa
 
 class MapViewController: UIViewController {
     
+    @IBOutlet weak var searchButton: UIButton!
+    
     @IBOutlet weak var mapView: GMSMapView!
     
     private var locationManager = CLLocationManager()
     
     private let defaultPosition = CLLocationCoordinate2D(latitude: 35.6811716, longitude: 139.7648629)
     
-    private let defaultZoom: Float = 15.0
+    private let defaultZoom: Float = 17.0
     
     private let viewModel = MapViewModel()
     
     private let disposeBag = DisposeBag()
+    
+    private var restaurants = [SearchRestaurantResponse.Restaurant]()
+    
+    @IBAction func onClickSearch(_ sender: UIButton) {
+        guard let location = locationManager.location else {
+            locationManager.requestLocation()
+            return
+        }
+        searchRestaurant(location.coordinate)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +51,38 @@ class MapViewController: UIViewController {
     
     /// Mapのの初期設定
     private func configMap() {
-        locationManager.requestWhenInUseAuthorization()
-        let camera = GMSCameraPosition.camera(withTarget: defaultPosition, zoom: defaultZoom)
-        mapView.camera = camera
+        searchButton.layer.cornerRadius = 15.0
         mapView.isMyLocationEnabled = true
+        
+        guard let location = locationManager.location else {
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
+        mapView.camera = camera
+    }
+    
+    private func showMarker() {
+        for restaurant in restaurants {
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: CLLocationDegrees(restaurant.latitude),
+                                                     longitude: CLLocationDegrees(restaurant.longitude))
+            marker.title = restaurant.name
+            marker.map = mapView
+        }
+    }
+    
+    private func searchRestaurant(_ location: CLLocationCoordinate2D) {
+        viewModel.searchRestaurants(latitude: Float(location.latitude),
+                                    longitude: Float(location.longitude))
+            .asDriver(onErrorRecover: { error in
+                // TODO: エラー処理
+                print(error)
+                return Driver.empty()
+            }).drive(onNext: { [weak self] response in
+                self?.restaurants = response.restaurants
+                self?.showMarker()
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -67,14 +107,7 @@ extension MapViewController: CLLocationManagerDelegate {
         }
         let cameraPosition = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
         mapView.camera = cameraPosition
-        viewModel.searchRestaurants(latitude: Float(location.coordinate.latitude),
-                                    longitude: Float(location.coordinate.longitude))
-            .asDriver(onErrorRecover: { error in
-                print(error)
-                return Driver.empty()
-            }).drive(onNext: { response in
-                print(response)
-            }).disposed(by: disposeBag)
+        searchRestaurant(location.coordinate)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
