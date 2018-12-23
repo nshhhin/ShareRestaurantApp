@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 class MapViewController: UIViewController {
     
@@ -19,6 +21,10 @@ class MapViewController: UIViewController {
     private let defaultPosition = CLLocationCoordinate2D(latitude: 35.6811716, longitude: 139.7648629)
     
     private let defaultZoom: Float = 15.0
+    
+    private let viewModel = MapViewModel()
+    
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +67,14 @@ extension MapViewController: CLLocationManagerDelegate {
         }
         let cameraPosition = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
         mapView.camera = cameraPosition
+        viewModel.searchRestaurants(latitude: Float(location.coordinate.latitude),
+                                    longitude: Float(location.coordinate.longitude))
+            .asDriver(onErrorRecover: { error in
+                print(error)
+                return Driver.empty()
+            }).drive(onNext: { response in
+                print(response)
+            }).disposed(by: disposeBag)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

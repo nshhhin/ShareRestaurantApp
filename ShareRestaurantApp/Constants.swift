@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+let GURUNAVI_BASE_API_URL = "https://api.gnavi.co.jp/"
+
+let GURUNAVI_API_VERSION = "/v3/"
+
+let GURUNAVI_SEARCH_RESTAURANT_API_PATH = "RestSearchAPI"

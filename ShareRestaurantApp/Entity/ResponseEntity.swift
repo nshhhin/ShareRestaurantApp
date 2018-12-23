@@ -11,5 +11,5 @@ import SwiftyJSON
 
 protocol ResponseEntity {
     var json: JSON { get }
-    init(json: JSON)
+    init(_ json: JSON)
 }
