@@ -14,7 +14,9 @@ import RxCocoa
 
 class MapViewController: UIViewController {
     
-    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchCurrentLocationButton: UIButton!
+    
+    @IBOutlet weak var searchCenterLocationButton: UIButton!
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -30,36 +32,61 @@ class MapViewController: UIViewController {
     
     private var restaurants = [SearchRestaurantResponse.Restaurant]()
     
-    @IBAction func onClickSearch(_ sender: UIButton) {
+    @IBAction func onClickSearchCurrentLocation(_ sender: UIButton) {
         guard let location = locationManager.location else {
             locationManager.requestLocation()
             return
         }
         searchRestaurant(location.coordinate)
     }
+    
+    @IBAction func onClickSearchCenterLocation(_ sender: UIButton) {
+        let location = mapView.camera.target
+        searchRestaurant(location)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        configLocation()
         configMap()
     }
     
     /// Viewのレイアウト等の設定
     private func configView() {
-        locationManager.delegate = self
+        searchCurrentLocationButton.layer.cornerRadius = 15.0
+        searchCenterLocationButton.layer.cornerRadius = 15.0
     }
     
     /// Mapのの初期設定
     private func configMap() {
-        searchButton.layer.cornerRadius = 15.0
         mapView.isMyLocationEnabled = true
         
-        guard let location = locationManager.location else {
-            locationManager.requestWhenInUseAuthorization()
-            return
+        var location: CLLocationCoordinate2D
+        if let current = locationManager.location {
+            location = current.coordinate
+        } else {
+            location = defaultPosition
         }
-        let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
+        let camera = GMSCameraPosition.camera(withTarget: location, zoom: defaultZoom)
         mapView.camera = camera
+    }
+    
+    private func configLocation() {
+        locationManager.requestWhenInUseAuthorization()
+        
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.delegate = self
+            locationManager.distanceFilter = 50
+            locationManager.startUpdatingLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied, .restricted:
+            // TODO: 設定アプリを開く
+            break
+        }
     }
     
     private func showMarker() {
@@ -87,19 +114,6 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        let status = CLLocationManager.authorizationStatus()
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            locationManager.requestLocation()
-        case .notDetermined:
-            manager.requestWhenInUseAuthorization()
-        case .denied, .restricted:
-            // TODO: 設定アプリを開く
-            break
-        }
-    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
