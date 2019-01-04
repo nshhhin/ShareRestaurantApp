@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import CoreLocation
 
 struct SearchRestaurantResponse: ResponseEntity {
     
@@ -25,6 +26,12 @@ struct SearchRestaurantResponse: ResponseEntity {
         let tel: String?
         let openTime: String?
         let holiday: String?
+        
+        func coordinate() -> CLLocationCoordinate2D {
+            let lat = CLLocationDegrees(latitude)
+            let long = CLLocationDegrees(longitude)
+            return CLLocationCoordinate2D(latitude: lat, longitude: long)
+        }
     }
     
     let restaurants: [Restaurant]

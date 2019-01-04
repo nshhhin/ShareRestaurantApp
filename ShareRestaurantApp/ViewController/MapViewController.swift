@@ -32,6 +32,7 @@ class MapViewController: UIViewController {
     
     private var restaurants = [SearchRestaurantResponse.Restaurant]()
     
+    // MARK: - Tap Action
     @IBAction func onClickSearchCurrentLocation(_ sender: UIButton) {
         guard let location = locationManager.location else {
             locationManager.requestLocation()
@@ -44,7 +45,8 @@ class MapViewController: UIViewController {
         let location = mapView.camera.target
         searchRestaurant(location)
     }
-
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
@@ -52,7 +54,8 @@ class MapViewController: UIViewController {
         configMap()
     }
     
-    /// Viewのレイアウト等の設定
+    // MARK: - Private Method
+    /// Viewのレイアウト等の初期設定
     private func configView() {
         searchCurrentLocationButton.layer.cornerRadius = 15.0
         searchCenterLocationButton.layer.cornerRadius = 15.0
@@ -71,7 +74,7 @@ class MapViewController: UIViewController {
         let camera = GMSCameraPosition.camera(withTarget: location, zoom: defaultZoom)
         mapView.camera = camera
     }
-    
+    /// 位置情報関係の初期設定
     private func configLocation() {
         locationManager.requestWhenInUseAuthorization()
         
@@ -88,17 +91,7 @@ class MapViewController: UIViewController {
             break
         }
     }
-    
-    private func showMarker() {
-        for restaurant in restaurants {
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: CLLocationDegrees(restaurant.latitude),
-                                                     longitude: CLLocationDegrees(restaurant.longitude))
-            marker.title = restaurant.name
-            marker.map = mapView
-        }
-    }
-    
+    /// レストラン検索
     private func searchRestaurant(_ location: CLLocationCoordinate2D) {
         viewModel.searchRestaurants(latitude: Float(location.latitude),
                                     longitude: Float(location.longitude))
@@ -109,19 +102,35 @@ class MapViewController: UIViewController {
             }).drive(onNext: { [weak self] response in
                 self?.restaurants = response.restaurants
                 self?.showMarker()
+                self?.updateCameraPosition(location)
             }).disposed(by: disposeBag)
+    }
+    /// レストラン情報を元にマーカーを表示
+    private func showMarker() {
+        for restaurant in restaurants {
+            let marker = GMSMarker()
+            
+            marker.position = restaurant.coordinate()
+            marker.title = restaurant.name
+            marker.map = mapView
+        }
+    }
+    /// レストランが全て画面に収まるように表示を変更
+    private func updateCameraPosition(_ location: CLLocationCoordinate2D) {
+        var bounds = GMSCoordinateBounds()
+        for restaurant in restaurants {
+            bounds = bounds.includingCoordinate(restaurant.coordinate())
+        }
+        
+        let updateCamera = GMSCameraUpdate.fit(bounds, withPadding: 16)
+        mapView.animate(with: updateCamera)
     }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
-        let cameraPosition = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: defaultZoom)
-        mapView.camera = cameraPosition
-        searchRestaurant(location.coordinate)
+        // TODO: 位置情報が更新された際の処理（必要であれば）
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
