@@ -12,15 +12,19 @@ import RxSwift
 
 class LocationUseCase: NSObject {
     
+    override init() {
+        super.init()
+        locationManager.delegate = self
+    }
+    
     private let locationManager = CLLocationManager()
     /// 位置情報を監視
     var bindLocation: BehaviorSubject<CLLocation?> = BehaviorSubject(value: nil)
     /// 位置情報取得エラー
-    var bindLocationError: BehaviorSubject<Error?> = BehaviorSubject(value: nil)
+    var bindLocationError: BehaviorSubject<LocationError> = BehaviorSubject(value: LocationError.unknown)
     /// 位置情報を1度だけ取得
     func fetchLocationOnce() {
         guard let location = locationManager.location else {
-            locationManager.delegate = self
             locationManager.requestLocation()
             return
         }
@@ -28,7 +32,9 @@ class LocationUseCase: NSObject {
     }
     /// 位置情報を断続的に取得
     func fetchLocationIntermittent() {
-        locationManager.delegate = self
+        if let location = locationManager.location {
+            bindLocation.onNext(location)
+        }
         locationManager.startUpdatingLocation()
     }
     
@@ -40,7 +46,7 @@ class LocationUseCase: NSObject {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .denied, .restricted:
-            // TODO: bindLocationError.onNext()
+            bindLocationError.onNext(.disallowFetchLocation)
             break
         }
     }
@@ -49,7 +55,14 @@ class LocationUseCase: NSObject {
 extension LocationUseCase: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        case .notDetermined:
+            locationManager.requestLocation()
+        case .denied, .restricted:
+            bindLocationError.onNext(.disallowFetchLocation)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -60,6 +73,6 @@ extension LocationUseCase: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // TOOD: エラー処理
+        bindLocationError.onNext(.failedFetchLocation)
     }
 }

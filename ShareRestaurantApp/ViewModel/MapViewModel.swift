@@ -7,11 +7,22 @@
 //
 
 import Foundation
+import CoreLocation
 import RxSwift
 
 class MapViewModel {
     
     let gurunaviUseCase = GurunaviUseCase()
+    
+    let locationUseCase = LocationUseCase()
+    
+    var bindLocation: BehaviorSubject<CLLocation?> {
+        return locationUseCase.bindLocation
+    }
+    
+    var bindFetchLocationError: BehaviorSubject<LocationError> {
+        return locationUseCase.bindLocationError
+    }
     
     func searchRestaurants(latitude: Float, longitude: Float) -> Single<SearchRestaurantResponse> {
         let request = SearchRestaurantRequest(name: nil,
@@ -19,5 +30,13 @@ class MapViewModel {
                                               longitude: longitude,
                                               freeword: nil)
         return gurunaviUseCase.searchRestaurants(request)
+    }
+    
+    func startFetchLocation() {
+        locationUseCase.fetchLocationIntermittent()
+    }
+    
+    func requestFetchLocation() {
+        locationUseCase.fetchLocationOnce()
     }
 }

@@ -20,8 +20,6 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     
-    private var locationManager = CLLocationManager()
-    
     private let defaultPosition = CLLocationCoordinate2D(latitude: 35.6811716, longitude: 139.7648629)
     
     private let defaultZoom: Float = 17.0
@@ -32,10 +30,12 @@ class MapViewController: UIViewController {
     
     private var restaurants = [SearchRestaurantResponse.Restaurant]()
     
+    private var location: CLLocation? = nil
+    
     // MARK: - Tap Action
     @IBAction func onClickSearchCurrentLocation(_ sender: UIButton) {
-        guard let location = locationManager.location else {
-            locationManager.requestLocation()
+        guard let location = location else {
+            viewModel.requestFetchLocation()
             return
         }
         searchRestaurant(location.coordinate)
@@ -65,31 +65,38 @@ class MapViewController: UIViewController {
     private func configMap() {
         mapView.isMyLocationEnabled = true
         
-        var location: CLLocationCoordinate2D
-        if let current = locationManager.location {
-            location = current.coordinate
+        var currentLocation: CLLocationCoordinate2D
+        if let current = location {
+            currentLocation = current.coordinate
         } else {
-            location = defaultPosition
+            currentLocation = defaultPosition
         }
-        let camera = GMSCameraPosition.camera(withTarget: location, zoom: defaultZoom)
+        let camera = GMSCameraPosition.camera(withTarget: currentLocation,
+                                              zoom: defaultZoom)
         mapView.camera = camera
     }
     /// 位置情報関係の初期設定
     private func configLocation() {
-        locationManager.requestWhenInUseAuthorization()
+        viewModel.bindLocation
+            .asDriver(onErrorDriveWith: Driver.empty())
+            .drive(onNext: { [weak self] currentLocation in
+                self?.location = currentLocation
+            }).disposed(by: disposeBag)
         
-        let status = CLLocationManager.authorizationStatus()
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            locationManager.delegate = self
-            locationManager.distanceFilter = 50
-            locationManager.startUpdatingLocation()
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .denied, .restricted:
-            // TODO: 設定アプリを開く
-            break
-        }
+        viewModel.bindFetchLocationError
+            .asDriver(onErrorDriveWith: Driver.empty())
+            .drive(onNext: { locationError in
+                // TODO: エラー処理
+                switch locationError {
+                case .disallowFetchLocation:
+                    print("許可されていない")
+                case .failedFetchLocation:
+                    print("取得失敗")
+                case .unknown:
+                    print("その他")
+                }
+            }).disposed(by: disposeBag)
+        viewModel.startFetchLocation()
     }
     /// レストラン検索
     private func searchRestaurant(_ location: CLLocationCoordinate2D) {
@@ -124,17 +131,5 @@ class MapViewController: UIViewController {
         
         let updateCamera = GMSCameraUpdate.fit(bounds, withPadding: 16)
         mapView.animate(with: updateCamera)
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // TODO: 位置情報が更新された際の処理（必要であれば）
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-        // TODO: 位置情報再取得の処理
     }
 }
