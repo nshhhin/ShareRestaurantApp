@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -52,6 +57,13 @@
                                     <action selector="onClickSearchCenterLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vPo-Mf-ui7"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F11-zA-2rh" customClass="RestaurantInfoView" customModule="ShareRestaurantApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="667" width="375" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="rke-ow-kTL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -59,16 +71,21 @@
                             <constraint firstAttribute="bottom" secondItem="itz-MK-usl" secondAttribute="bottom" id="4hk-mL-huE"/>
                             <constraint firstItem="bJY-fd-8PJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="4vc-kN-j7w"/>
                             <constraint firstItem="5cr-DG-ILc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="FhG-Nn-x5M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="F11-zA-2rh" secondAttribute="bottom" constant="-120" id="Mkm-Si-fNs"/>
                             <constraint firstItem="itz-MK-usl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mls-Ta-nzF"/>
                             <constraint firstItem="itz-MK-usl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="W3O-ix-uzr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F11-zA-2rh" secondAttribute="trailing" id="WQu-oa-RUc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5cr-DG-ILc" secondAttribute="trailing" constant="16" id="WeK-38-mt4"/>
                             <constraint firstItem="itz-MK-usl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="e86-ox-4Yb"/>
+                            <constraint firstItem="F11-zA-2rh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gQh-II-JjI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="fbP-6C-a4c"/>
                     <connections>
                         <outlet property="mapView" destination="itz-MK-usl" id="CX8-3i-bbj"/>
+                        <outlet property="restaurantInfoView" destination="F11-zA-2rh" id="ICS-3a-KlF"/>
+                        <outlet property="restaurantInfoViewBottom" destination="Mkm-Si-fNs" id="nr1-WP-GvC"/>
                         <outlet property="searchCenterLocationButton" destination="5cr-DG-ILc" id="4jz-bQ-OYr"/>
                         <outlet property="searchCurrentLocationButton" destination="bJY-fd-8PJ" id="9c3-P4-2jS"/>
                     </connections>

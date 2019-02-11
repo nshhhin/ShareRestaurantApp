@@ -21,6 +21,10 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBOutlet weak var restaurantInfoView: RestaurantInfoView!
+    
+    @IBOutlet weak var restaurantInfoViewBottom: NSLayoutConstraint!
+    
     // MARK: Private Property
     private let defaultPosition = CLLocationCoordinate2D(latitude: 35.6811716, longitude: 139.7648629)
     
@@ -29,6 +33,8 @@ class MapViewController: UIViewController {
     private let viewModel = MapViewModel()
     
     private let disposeBag = DisposeBag()
+    
+    private let infoViewHeight: CGFloat = 120
     
     private var restaurants = [Restaurant]()
     
@@ -68,10 +74,21 @@ class MapViewController: UIViewController {
                 print(fetchedData)
             }).disposed(by: disposeBag)
         viewModel.loadFavoriteRestaurants()
+        
+        restaurantInfoView.closeButton
+            .rx.tap.subscribe { [weak self] _ in
+                self?.closeInfoView()
+        }.disposed(by: disposeBag)
+        
+        restaurantInfoView.storeButton
+            .rx.tap.subscribe { [weak self] _ in
+                
+        }
     }
     
     /// Mapのの初期設定
     private func configMap() {
+        mapView.delegate = self
         mapView.isMyLocationEnabled = true
         
         var currentLocation: CLLocationCoordinate2D
@@ -129,7 +146,8 @@ class MapViewController: UIViewController {
             }
             let marker = GMSMarker()
             marker.position = position
-            marker.title = restaurant.name
+            // マーカーとレストラン情報を紐づけるために title に id を設定
+            marker.title = restaurant.id
             marker.map = mapView
         }
     }
@@ -148,5 +166,48 @@ class MapViewController: UIViewController {
         
         let updateCamera = GMSCameraUpdate.fit(bounds, withPadding: 16)
         mapView.animate(with: updateCamera)
+    }
+    
+    private func showAddFavoriteView() {
+        // TODO: 表示
+    }
+    
+    // MARK: - Fileprivate Method
+    fileprivate func showInfoView(selected restaurant: Restaurant) {
+        restaurantInfoView.setData(restaurant)
+        restaurantInfoViewBottom.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    fileprivate func closeInfoView() {
+        restaurantInfoViewBottom.constant = -self.infoViewHeight
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    fileprivate func searchSelectedRestaurant(id: String) -> Restaurant? {
+        for restaurant in restaurants {
+            if restaurant.id == id {
+                return restaurant
+            }
+        }
+        return nil
+    }
+}
+
+extension MapViewController: GMSMapViewDelegate {
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        mapView.animate(toLocation: marker.position)
+        // TODO: マーカーとレストランの連携方法を再検討
+        guard let id = marker.title,
+            let restaurant = searchSelectedRestaurant(id: id) else {
+                return true
+        }
+        showInfoView(selected: restaurant)
+        return true
     }
 }

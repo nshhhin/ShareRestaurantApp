@@ -41,9 +41,11 @@ class CoreDataUseCase {
         }
     }
     
-    func storeContext(restaurant: Restaurant) {
+    func storeContext(restaurant: Restaurant?) {
         let context = persistentContainer.viewContext
-        appendFavoriteRestaurant(restaurant, context: context)
+        if let restaurant = restaurant {
+            appendFavoriteRestaurant(restaurant, context: context)
+        }
         if context.hasChanges {
             do {
                 try context.save()
