@@ -14,12 +14,14 @@ import RxCocoa
 
 class MapViewController: UIViewController {
     
+    // MARK: IBOutlet
     @IBOutlet weak var searchCurrentLocationButton: UIButton!
     
     @IBOutlet weak var searchCenterLocationButton: UIButton!
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    // MARK: Private Property
     private let defaultPosition = CLLocationCoordinate2D(latitude: 35.6811716, longitude: 139.7648629)
     
     private let defaultZoom: Float = 17.0
@@ -28,7 +30,7 @@ class MapViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    private var restaurants = [SearchRestaurantResponse.Restaurant]()
+    private var restaurants = [Restaurant]()
     
     private var location: CLLocation? = nil
     
@@ -42,8 +44,8 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func onClickSearchCenterLocation(_ sender: UIButton) {
-        let location = mapView.camera.target
-        searchRestaurant(location)
+        let centerLocation = mapView.camera.target
+        searchRestaurant(centerLocation)
     }
     
     // MARK: - Life Cycle
@@ -109,24 +111,32 @@ class MapViewController: UIViewController {
             }).drive(onNext: { [weak self] response in
                 self?.restaurants = response.restaurants
                 self?.showMarker()
-                self?.updateCameraPosition(location)
+                self?.updateCameraPosition(current: location)
             }).disposed(by: disposeBag)
     }
     /// レストラン情報を元にマーカーを表示
     private func showMarker() {
         for restaurant in restaurants {
+            guard let position = restaurant.coordinate() else {
+                continue
+            }
             let marker = GMSMarker()
-            
-            marker.position = restaurant.coordinate()
+            marker.position = position
             marker.title = restaurant.name
             marker.map = mapView
         }
     }
     /// レストランが全て画面に収まるように表示を変更
-    private func updateCameraPosition(_ location: CLLocationCoordinate2D) {
+    private func updateCameraPosition(current location: CLLocationCoordinate2D?) {
         var bounds = GMSCoordinateBounds()
+        if let location = location {
+            bounds.includingCoordinate(location)
+        }
         for restaurant in restaurants {
-            bounds = bounds.includingCoordinate(restaurant.coordinate())
+            guard let coordinate = restaurant.coordinate() else{
+                continue
+            }
+            bounds = bounds.includingCoordinate(coordinate)
         }
         
         let updateCamera = GMSCameraUpdate.fit(bounds, withPadding: 16)
