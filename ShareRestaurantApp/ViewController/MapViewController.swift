@@ -82,8 +82,8 @@ class MapViewController: UIViewController {
         
         restaurantInfoView.storeButton
             .rx.tap.subscribe { [weak self] _ in
-                
-        }
+                self?.showAddFavoriteView()
+        }.disposed(by: disposeBag)
     }
     
     /// Mapのの初期設定
@@ -169,7 +169,20 @@ class MapViewController: UIViewController {
     }
     
     private func showAddFavoriteView() {
-        // TODO: 表示
+        let storyboard = UIStoryboard(name: AddFavoriteRestaurantViewController.storyboardId,
+                                            bundle: nil)
+        guard let vc = storyboard.instantiateInitialViewController()
+            as? AddFavoriteRestaurantViewController else {
+                return
+        }
+        guard let restaurant = restaurantInfoView.restaurantData else {
+            return
+        }
+        vc.setRestaurant(selected: restaurant)
+        vc.delegate = self
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(vc, animated: true, completion: nil)
     }
     
     // MARK: - Fileprivate Method
@@ -210,4 +223,18 @@ extension MapViewController: GMSMapViewDelegate {
         showInfoView(selected: restaurant)
         return true
     }
+}
+
+extension MapViewController: AddFavoriteRestaurantViewControllerDelegate {
+    
+    func tappedCloseButton() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func tappedStoreButton(_ restaurant: Restaurant) {
+        viewModel.saveFavoriteRestaurant(restaurant)
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u0W-rw-Wrm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Favorite Restaurant View Controller-->
+        <scene sceneID="4B8-NK-ZvC">
+            <objects>
+                <viewController storyboardIdentifier="AddFavoriteRestaurantViewController" id="u0W-rw-Wrm" customClass="AddFavoriteRestaurantViewController" customModule="ShareRestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SDY-ug-s7U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FC3-RS-jzZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="コメント" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p9N-gQ-bfX">
+                                        <rect key="frame" x="16" y="120" width="343" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="O4B-kS-7v2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRh-sF-Z7Z">
+                                        <rect key="frame" x="299" y="256" width="60" height="29"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="YpI-Pi-g3e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="保存"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyx-tN-xrx">
+                                        <rect key="frame" x="16" y="256" width="60" height="29"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="q7z-hE-MVA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                        <color key="tintColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="閉じる">
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.40100599315068491" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wRh-sF-Z7Z" firstAttribute="top" secondItem="p9N-gQ-bfX" secondAttribute="bottom" constant="16" id="RJp-ZK-0V5"/>
+                                    <constraint firstItem="p9N-gQ-bfX" firstAttribute="centerX" secondItem="FC3-RS-jzZ" secondAttribute="centerX" id="Tlc-6D-em1"/>
+                                    <constraint firstItem="p9N-gQ-bfX" firstAttribute="top" secondItem="FC3-RS-jzZ" secondAttribute="top" constant="120" id="a3z-vc-BrK"/>
+                                    <constraint firstItem="p9N-gQ-bfX" firstAttribute="leading" secondItem="FC3-RS-jzZ" secondAttribute="leading" constant="16" id="bZV-J9-T3s"/>
+                                    <constraint firstItem="kyx-tN-xrx" firstAttribute="top" secondItem="p9N-gQ-bfX" secondAttribute="bottom" constant="16" id="hFe-PC-6dY"/>
+                                    <constraint firstAttribute="trailing" secondItem="wRh-sF-Z7Z" secondAttribute="trailing" constant="16" id="jqE-jK-nza"/>
+                                    <constraint firstItem="kyx-tN-xrx" firstAttribute="leading" secondItem="FC3-RS-jzZ" secondAttribute="leading" constant="16" id="xn8-me-doq"/>
+                                    <constraint firstAttribute="trailing" secondItem="p9N-gQ-bfX" secondAttribute="trailing" constant="16" id="xpp-Ns-oxD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FC3-RS-jzZ" secondAttribute="bottom" id="8nd-z8-CPS"/>
+                            <constraint firstItem="PQl-Li-Mxj" firstAttribute="trailing" secondItem="FC3-RS-jzZ" secondAttribute="trailing" id="LNL-M9-gHd"/>
+                            <constraint firstItem="FC3-RS-jzZ" firstAttribute="top" secondItem="PQl-Li-Mxj" secondAttribute="top" id="fOQ-NX-Z6a"/>
+                            <constraint firstItem="FC3-RS-jzZ" firstAttribute="leading" secondItem="PQl-Li-Mxj" secondAttribute="leading" id="ipK-bN-Woc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQl-Li-Mxj"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="kyx-tN-xrx" id="pCh-9s-Aiw"/>
+                        <outlet property="commentTextView" destination="p9N-gQ-bfX" id="nnA-fq-sBg"/>
+                        <outlet property="storeButton" destination="wRh-sF-Z7Z" id="eae-H1-ssn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="39q-1H-qrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89" y="151"/>
+        </scene>
+    </scenes>
+</document>
