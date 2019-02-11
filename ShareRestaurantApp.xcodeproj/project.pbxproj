@@ -24,6 +24,8 @@
 		B938B36522113E1500D57962 /* CoreDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B36422113E1500D57962 /* CoreDataUseCase.swift */; };
 		B938B36C2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B36A2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift */; };
 		B938B36D2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B36B2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift */; };
+		B938B37722117AD600D57962 /* RestaurantInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B37622117AD600D57962 /* RestaurantInfoView.swift */; };
+		B938B37922117AE800D57962 /* RestaurantInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B938B37822117AE800D57962 /* RestaurantInfoView.xib */; };
 		B97C1B7121CE29530069D55A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97C1B7021CE29530069D55A /* ApiError.swift */; };
 		B97C1B7321D013A40069D55A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97C1B7221D013A40069D55A /* MapViewModel.swift */; };
 		B981607021DF4C260000C3AF /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B981606F21DF4C260000C3AF /* Storyboard.swift */; };
@@ -83,6 +85,8 @@
 		B938B36422113E1500D57962 /* CoreDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUseCase.swift; sourceTree = "<group>"; };
 		B938B36A2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRestaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B938B36B2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRestaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B938B37622117AD600D57962 /* RestaurantInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoView.swift; sourceTree = "<group>"; };
+		B938B37822117AE800D57962 /* RestaurantInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantInfoView.xib; sourceTree = "<group>"; };
 		B97C1B7021CE29530069D55A /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B97C1B7221D013A40069D55A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B981606F21DF4C260000C3AF /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 		B9461ABD219FDF8D007D5E8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B938B37622117AD600D57962 /* RestaurantInfoView.swift */,
+				B938B37822117AE800D57962 /* RestaurantInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				B92CA5D421980E8000E89A53 /* LaunchScreen.storyboard in Resources */,
 				B92CA5D121980E8000E89A53 /* Assets.xcassets in Resources */,
 				B92CA5CF21980E8000E89A53 /* Main.storyboard in Resources */,
+				B938B37922117AE800D57962 /* RestaurantInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +450,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ShareRestaurantApp/Pods-ShareRestaurantApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -451,6 +459,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -555,6 +564,7 @@
 				B981607221DF4CCB0000C3AF /* UIView+Nib.swift in Sources */,
 				B97C1B7121CE29530069D55A /* ApiError.swift in Sources */,
 				B92CA5CC21980E8000E89A53 /* MapViewController.swift in Sources */,
+				B938B37722117AD600D57962 /* RestaurantInfoView.swift in Sources */,
 				B9F3438121C648F60066395A /* ResponseEntity.swift in Sources */,
 				B92CA5CA21980E8000E89A53 /* AppDelegate.swift in Sources */,
 				B9F3437321C51F260066395A /* Constants.swift in Sources */,
