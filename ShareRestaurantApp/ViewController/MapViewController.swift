@@ -61,6 +61,13 @@ class MapViewController: UIViewController {
     private func configView() {
         searchCurrentLocationButton.layer.cornerRadius = 15.0
         searchCenterLocationButton.layer.cornerRadius = 15.0
+        
+        viewModel.bindFavoriteRestaurants
+            .asDriver(onErrorDriveWith: Driver.empty())
+            .drive(onNext: { fetchedData in
+                print(fetchedData)
+            }).disposed(by: disposeBag)
+        viewModel.loadFavoriteRestaurants()
     }
     
     /// Mapのの初期設定

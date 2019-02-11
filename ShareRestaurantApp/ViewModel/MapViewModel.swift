@@ -20,6 +20,10 @@ class MapViewModel {
         return locationUseCase.bindLocation
     }
     
+    var bindFavoriteRestaurants: BehaviorSubject<[FavoriteRestaurant]> {
+        return CoreDataUseCase.shared.bindFavoriteRestaurantsData
+    }
+    
     var bindFetchLocationError: BehaviorSubject<LocationError> {
         return locationUseCase.bindLocationError
     }
@@ -38,5 +42,13 @@ class MapViewModel {
     
     func requestFetchLocation() {
         locationUseCase.fetchLocationOnce()
+    }
+    
+    func loadFavoriteRestaurants() {
+        CoreDataUseCase.shared.fetchContext()
+    }
+    
+    func saveFavoriteRestaurant(_ restaurant: Restaurant) {
+        CoreDataUseCase.shared.storeContext(restaurant: restaurant)
     }
 }

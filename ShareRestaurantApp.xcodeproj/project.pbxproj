@@ -20,6 +20,10 @@
 		B938B355220F042A00D57962 /* LocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B354220F042A00D57962 /* LocationUseCase.swift */; };
 		B938B35D2210341800D57962 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B35C2210341800D57962 /* LocationError.swift */; };
 		B938B35F2210399700D57962 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B35E2210399700D57962 /* Restaurant.swift */; };
+		B938B36322113BB100D57962 /* FavoriteRestaurants.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B938B36122113BB100D57962 /* FavoriteRestaurants.xcdatamodeld */; };
+		B938B36522113E1500D57962 /* CoreDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B36422113E1500D57962 /* CoreDataUseCase.swift */; };
+		B938B36C2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B36A2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift */; };
+		B938B36D2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B36B2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift */; };
 		B97C1B7121CE29530069D55A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97C1B7021CE29530069D55A /* ApiError.swift */; };
 		B97C1B7321D013A40069D55A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97C1B7221D013A40069D55A /* MapViewModel.swift */; };
 		B981607021DF4C260000C3AF /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B981606F21DF4C260000C3AF /* Storyboard.swift */; };
@@ -75,6 +79,10 @@
 		B938B354220F042A00D57962 /* LocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCase.swift; sourceTree = "<group>"; };
 		B938B35C2210341800D57962 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		B938B35E2210399700D57962 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		B938B36222113BB100D57962 /* FavoriteRestaurants.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteRestaurants.xcdatamodel; sourceTree = "<group>"; };
+		B938B36422113E1500D57962 /* CoreDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUseCase.swift; sourceTree = "<group>"; };
+		B938B36A2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRestaurant+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B938B36B2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRestaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B97C1B7021CE29530069D55A /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B97C1B7221D013A40069D55A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B981606F21DF4C260000C3AF /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 				B9461ABD219FDF8D007D5E8C /* View */,
 				B9461AC0219FDFEB007D5E8C /* Entity */,
 				B9461AC1219FDFF7007D5E8C /* Utility */,
+				B938B36022113B9100D57962 /* CoreData */,
 				B92CA5C921980E8000E89A53 /* AppDelegate.swift */,
 				B9F3437221C51F260066395A /* Constants.swift */,
 				B9F3437821C525780066395A /* APIKeysConstants.swift */,
@@ -187,6 +196,16 @@
 				B92CA5EB21980E8100E89A53 /* Info.plist */,
 			);
 			path = ShareRestaurantAppUITests;
+			sourceTree = "<group>";
+		};
+		B938B36022113B9100D57962 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B938B36A2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift */,
+				B938B36B2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift */,
+				B938B36122113BB100D57962 /* FavoriteRestaurants.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		B9461ABC219FDF81007D5E8C /* ViewController */ = {
@@ -217,6 +236,7 @@
 			children = (
 				B9F3438421C6543C0066395A /* GurunaviUseCase.swift */,
 				B938B354220F042A00D57962 /* LocationUseCase.swift */,
+				B938B36422113E1500D57962 /* CoreDataUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -520,10 +540,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B938B36522113E1500D57962 /* CoreDataUseCase.swift in Sources */,
 				B9F3437921C525780066395A /* APIKeysConstants.swift in Sources */,
+				B938B36C2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift in Sources */,
 				B938B355220F042A00D57962 /* LocationUseCase.swift in Sources */,
 				B938B35D2210341800D57962 /* LocationError.swift in Sources */,
 				B9F3438721C655690066395A /* SearchRestaurantResponse.swift in Sources */,
+				B938B36D2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift in Sources */,
+				B938B36322113BB100D57962 /* FavoriteRestaurants.xcdatamodeld in Sources */,
 				B9F3438321C64B630066395A /* SearchRestaurantRequest.swift in Sources */,
 				B9F3438521C6543C0066395A /* GurunaviUseCase.swift in Sources */,
 				B981607021DF4C260000C3AF /* Storyboard.swift in Sources */,
@@ -877,6 +901,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B938B36122113BB100D57962 /* FavoriteRestaurants.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B938B36222113BB100D57962 /* FavoriteRestaurants.xcdatamodel */,
+			);
+			currentVersion = B938B36222113BB100D57962 /* FavoriteRestaurants.xcdatamodel */;
+			path = FavoriteRestaurants.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B92CA5BE21980E8000E89A53 /* Project object */;
 }
