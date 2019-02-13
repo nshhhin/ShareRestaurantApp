@@ -34,7 +34,9 @@ class MapViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    private let infoViewHeight: CGFloat = 120
+    private let infoViewHeight: CGFloat = 136
+    
+    private var safeAreaInsetBottom: CGFloat = 0
     
     private var restaurants = [Restaurant]()
     
@@ -60,6 +62,10 @@ class MapViewController: UIViewController {
         configView()
         configLocation()
         configMap()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        safeAreaInsetBottom = view.safeAreaInsets.bottom
     }
     
     // MARK: - Private Method
@@ -188,14 +194,14 @@ class MapViewController: UIViewController {
     // MARK: - Fileprivate Method
     fileprivate func showInfoView(selected restaurant: Restaurant) {
         restaurantInfoView.setData(restaurant)
-        restaurantInfoViewBottom.constant = 0
+        restaurantInfoViewBottom.constant = safeAreaInsetBottom
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
         })
     }
     
     fileprivate func closeInfoView() {
-        restaurantInfoViewBottom.constant = -self.infoViewHeight
+        restaurantInfoViewBottom.constant -= (infoViewHeight + safeAreaInsetBottom)
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
         })

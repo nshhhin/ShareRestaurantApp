@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F11-zA-2rh" customClass="RestaurantInfoView" customModule="ShareRestaurantApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="667" width="375" height="120"/>
+                                <rect key="frame" x="16" y="667" width="343" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="rke-ow-kTL"/>
@@ -71,13 +71,13 @@
                             <constraint firstAttribute="bottom" secondItem="itz-MK-usl" secondAttribute="bottom" id="4hk-mL-huE"/>
                             <constraint firstItem="bJY-fd-8PJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="4vc-kN-j7w"/>
                             <constraint firstItem="5cr-DG-ILc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="FhG-Nn-x5M"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="F11-zA-2rh" secondAttribute="bottom" constant="-120" id="Mkm-Si-fNs"/>
+                            <constraint firstAttribute="bottom" secondItem="F11-zA-2rh" secondAttribute="bottom" constant="-120" id="Mkm-Si-fNs"/>
                             <constraint firstItem="itz-MK-usl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mls-Ta-nzF"/>
                             <constraint firstItem="itz-MK-usl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="W3O-ix-uzr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F11-zA-2rh" secondAttribute="trailing" id="WQu-oa-RUc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F11-zA-2rh" secondAttribute="trailing" constant="16" id="WQu-oa-RUc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5cr-DG-ILc" secondAttribute="trailing" constant="16" id="WeK-38-mt4"/>
                             <constraint firstItem="itz-MK-usl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="e86-ox-4Yb"/>
-                            <constraint firstItem="F11-zA-2rh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gQh-II-JjI"/>
+                            <constraint firstItem="F11-zA-2rh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gQh-II-JjI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
