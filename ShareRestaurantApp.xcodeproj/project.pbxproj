@@ -32,6 +32,7 @@
 		B97C1B7321D013A40069D55A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97C1B7221D013A40069D55A /* MapViewModel.swift */; };
 		B981607021DF4C260000C3AF /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B981606F21DF4C260000C3AF /* Storyboard.swift */; };
 		B981607221DF4CCB0000C3AF /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = B981607121DF4CCB0000C3AF /* UIView+Nib.swift */; };
+		B98D175522145E8A00F69795 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D175422145E8A00F69795 /* UIView+Shadow.swift */; };
 		B9F3437321C51F260066395A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3437221C51F260066395A /* Constants.swift */; };
 		B9F3437921C525780066395A /* APIKeysConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3437821C525780066395A /* APIKeysConstants.swift */; };
 		B9F3437F21C646960066395A /* RequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3437E21C646960066395A /* RequestEntity.swift */; };
@@ -95,6 +96,7 @@
 		B97C1B7221D013A40069D55A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B981606F21DF4C260000C3AF /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		B981607121DF4CCB0000C3AF /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		B98D175422145E8A00F69795 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		B9F3437221C51F260066395A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B9F3437821C525780066395A /* APIKeysConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeysConstants.swift; sourceTree = "<group>"; };
 		B9F3437E21C646960066395A /* RequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEntity.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				B97C1B7021CE29530069D55A /* ApiError.swift */,
 				B981606F21DF4C260000C3AF /* Storyboard.swift */,
 				B981607121DF4CCB0000C3AF /* UIView+Nib.swift */,
+				B98D175422145E8A00F69795 /* UIView+Shadow.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				B97C1B7121CE29530069D55A /* ApiError.swift in Sources */,
 				B92CA5CC21980E8000E89A53 /* MapViewController.swift in Sources */,
 				B938B37722117AD600D57962 /* RestaurantInfoView.swift in Sources */,
+				B98D175522145E8A00F69795 /* UIView+Shadow.swift in Sources */,
 				B9F3438121C648F60066395A /* ResponseEntity.swift in Sources */,
 				B92CA5CA21980E8000E89A53 /* AppDelegate.swift in Sources */,
 				B9F3437321C51F260066395A /* Constants.swift in Sources */,

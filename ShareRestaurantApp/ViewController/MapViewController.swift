@@ -73,6 +73,9 @@ class MapViewController: UIViewController {
     private func configView() {
         searchCurrentLocationButton.layer.cornerRadius = 15.0
         searchCenterLocationButton.layer.cornerRadius = 15.0
+        searchCurrentLocationButton.setShadow()
+        searchCenterLocationButton.setShadow()
+        restaurantInfoView.setShadow()
         
         viewModel.bindFavoriteRestaurants
             .asDriver(onErrorDriveWith: Driver.empty())

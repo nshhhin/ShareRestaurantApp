@@ -28,13 +28,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJY-fd-8PJ">
-                                <rect key="frame" x="16" y="80" width="135" height="30"/>
+                                <rect key="frame" x="16" y="80" width="120" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BTs-Ie-FkQ"/>
+                                    <constraint firstAttribute="width" priority="750" constant="120" id="ILb-O7-GIH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
-                                <state key="normal" title="現在地から検索する">
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="現在地から検索">
                                     <color key="titleColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -43,13 +45,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cr-DG-ILc">
-                                <rect key="frame" x="209" y="80" width="150" height="30"/>
+                                <rect key="frame" x="249" y="80" width="110" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="110" id="Nky-OP-a0p"/>
                                     <constraint firstAttribute="height" constant="30" id="hez-u2-dqE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
-                                <state key="normal" title="この場所から検索する">
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="中心から検索">
                                     <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
