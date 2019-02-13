@@ -22,13 +22,19 @@ struct SearchRestaurantResponse: ResponseEntity {
         let restaurantArray = json["rest"].arrayValue
         
         self.restaurants = restaurantArray.compactMap({ data in
+            var imgUrl: String?
+            if let shopImage = data["image_url"]["shop_image1"].string {
+                imgUrl = shopImage
+            } else if let shopImage = data["image_url"]["shop_image2"].string {
+                imgUrl = shopImage
+            }
             return Restaurant(id: data["id"].string,
                               name: data["name"].string,
                               pr: data["pr"]["pr_short"].string,
                               latitude: data["latitude"].floatValue,
                               longitude: data["longitude"].floatValue,
                               mobileUrl: data["url_mobile"].string,
-                              imageUrl: data["image_url"].string,
+                              imageUrl: imgUrl,
                               address: data["address"].string,
                               tel: data["tel"].string,
                               openTime: data["opentime"].string,

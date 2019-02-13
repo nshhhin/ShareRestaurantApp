@@ -32,12 +32,21 @@ class RestaurantInfoView: UIView {
     }
     
     func setData(_ restaurant: Restaurant) {
+        resetData()
         restaurantData = restaurant
         if let urlStr = restaurant.imageUrl, let url = URL(string: urlStr) {
             imageView.af_setImage(withURL: url)
         }
         nameLabel.text = restaurant.name
         addressLabel.text = restaurant.address
+    }
+    
+    func resetData() {
+        restaurantData = nil
+        imageView.af_cancelImageRequest()
+        imageView.image = nil
+        nameLabel.text = nil
+        addressLabel.text = nil
     }
     
     private func configView() {
