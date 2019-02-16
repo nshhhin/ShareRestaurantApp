@@ -32,6 +32,14 @@ class StarsView: UIView {
         configView()
     }
     
+    func setSelectedStars(_ tagNum: Int?) {
+        guard let tagNum = tagNum else {
+            lastSelectedTag = nil
+            return
+        }
+        setSelectStarsLayout(tagNum)
+    }
+    
     private func configView() {
         let view = Bundle.main.loadNibNamed("StarsView", owner: self, options: nil)?.first as! UIView
         view.frame = bounds
