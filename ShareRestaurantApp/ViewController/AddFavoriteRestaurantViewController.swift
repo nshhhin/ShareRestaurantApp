@@ -23,8 +23,8 @@ class AddFavoriteRestaurantViewController: UIViewController {
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var storeButton: UIButton!
-
     
+    @IBOutlet weak var starsView: StarsView!
     @IBAction func tappedCloseButton(_ sender: UIButton) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -44,6 +44,7 @@ class AddFavoriteRestaurantViewController: UIViewController {
         super.viewDidLoad()
         configView()
     }
+    
     // MARK: - Public Method
     func setRestaurant(selected selectedRestaurant: Restaurant) {
         restaurant = selectedRestaurant
@@ -52,10 +53,28 @@ class AddFavoriteRestaurantViewController: UIViewController {
     // MARK: - Private Method
     private func configView() {
         restaurantName.text = restaurant?.name
+        // TODO: 保存していた評価を反映
+        starsView.setSelectedStars(nil)
+        commentTextView.delegate = self
     }
     
     private func saveFavariteRestaurant() {
         navigationController?.dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension AddFavoriteRestaurantViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard text == "\n" else {
+            return true
+        }
+        commentTextView.resignFirstResponder()
+        return false
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+    }
 }

@@ -50,7 +50,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glo-7h-Dxu">
                                                 <rect key="frame" x="0.0" y="64" width="343" height="32"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk6-tO-fSg">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一言コメント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk6-tO-fSg">
                                                         <rect key="frame" x="16" y="9" width="311" height="14"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
                                                         <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,7 +81,10 @@
                                                     <constraint firstAttribute="height" constant="80" id="xKf-4X-e02"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="コメント"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIk-ll-9m8">
                                                 <rect key="frame" x="0.0" y="192" width="343" height="32"/>
@@ -204,6 +207,7 @@
                         <outlet property="closeButton" destination="faR-OS-h6h" id="xqp-l9-GV7"/>
                         <outlet property="commentTextView" destination="6O3-dz-A36" id="AXj-rb-huF"/>
                         <outlet property="restaurantName" destination="nED-4c-Yeg" id="G6B-rV-Xzg"/>
+                        <outlet property="starsView" destination="aZq-O8-p7W" id="ggF-1l-d1s"/>
                         <outlet property="storeButton" destination="wOO-SF-huT" id="WYZ-Fb-jjf"/>
                     </connections>
                 </viewController>
