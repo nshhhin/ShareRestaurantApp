@@ -26,48 +26,168 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FC3-RS-jzZ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="コメント" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p9N-gQ-bfX">
-                                        <rect key="frame" x="16" y="120" width="343" height="120"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8o-Xp-8C2">
+                                        <rect key="frame" x="16" y="141.5" width="343" height="364"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62V-Kf-GN2">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店舗名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfO-z4-Lku">
+                                                        <rect key="frame" x="16" y="9" width="311" height="14"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.70980392156862748" alpha="1" colorSpace="deviceRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="WfO-z4-Lku" secondAttribute="trailing" constant="16" id="0Ul-ww-pxh"/>
+                                                    <constraint firstAttribute="height" constant="32" id="bVg-HR-QV6"/>
+                                                    <constraint firstItem="WfO-z4-Lku" firstAttribute="centerY" secondItem="62V-Kf-GN2" secondAttribute="centerY" id="l5C-S4-eKc"/>
+                                                    <constraint firstItem="WfO-z4-Lku" firstAttribute="leading" secondItem="62V-Kf-GN2" secondAttribute="leading" constant="16" id="x8m-Sy-V8y"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glo-7h-Dxu">
+                                                <rect key="frame" x="0.0" y="64" width="343" height="32"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk6-tO-fSg">
+                                                        <rect key="frame" x="16" y="9" width="311" height="14"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.70980392160000005" alpha="1" colorSpace="deviceRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="xk6-tO-fSg" secondAttribute="trailing" constant="16" id="Px3-a5-1PY"/>
+                                                    <constraint firstItem="xk6-tO-fSg" firstAttribute="leading" secondItem="glo-7h-Dxu" secondAttribute="leading" constant="16" id="WFy-L8-2fi"/>
+                                                    <constraint firstAttribute="height" constant="32" id="YTL-XJ-p1y"/>
+                                                    <constraint firstItem="xk6-tO-fSg" firstAttribute="centerY" secondItem="glo-7h-Dxu" secondAttribute="centerY" id="gie-rE-zAh"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店舗名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nED-4c-Yeg">
+                                                <rect key="frame" x="16" y="32" width="311" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="Htj-Ut-q1s"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6O3-dz-A36">
+                                                <rect key="frame" x="16" y="104" width="311" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="xKf-4X-e02"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIk-ll-9m8">
+                                                <rect key="frame" x="0.0" y="192" width="343" height="32"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評価" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFc-sW-W1z">
+                                                        <rect key="frame" x="16" y="9" width="311" height="14"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.70980392160000005" alpha="1" colorSpace="deviceRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="JFc-sW-W1z" firstAttribute="centerY" secondItem="PIk-ll-9m8" secondAttribute="centerY" id="82o-xI-TpW"/>
+                                                    <constraint firstAttribute="height" constant="32" id="9gN-og-iGk"/>
+                                                    <constraint firstItem="JFc-sW-W1z" firstAttribute="leading" secondItem="PIk-ll-9m8" secondAttribute="leading" constant="16" id="Xji-20-U0P"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JFc-sW-W1z" secondAttribute="trailing" constant="16" id="d53-y1-eXf"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktu-Ik-TaQ">
+                                                <rect key="frame" x="0.0" y="284" width="343" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faR-OS-h6h">
+                                                        <rect key="frame" x="16" y="16" width="147.5" height="48"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="O1s-mx-a8b"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                                        <color key="tintColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="閉じる">
+                                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tappedCloseButton:" destination="u0W-rw-Wrm" eventType="touchUpInside" id="BfE-tX-Baa"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-SF-huT">
+                                                        <rect key="frame" x="179.5" y="16" width="147.5" height="48"/>
+                                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="idJ-cN-5KJ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                                        <state key="normal" title="保存">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tappedStoreButton:" destination="u0W-rw-Wrm" eventType="touchUpInside" id="4iz-ce-2xB"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.70980392160000005" alpha="1" colorSpace="deviceRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="faR-OS-h6h" firstAttribute="top" secondItem="ktu-Ik-TaQ" secondAttribute="top" constant="16" id="2OY-Zu-0mt"/>
+                                                    <constraint firstAttribute="height" constant="80" id="2kj-4H-g4P"/>
+                                                    <constraint firstItem="wOO-SF-huT" firstAttribute="width" secondItem="faR-OS-h6h" secondAttribute="width" id="7nO-Yl-2f7"/>
+                                                    <constraint firstItem="faR-OS-h6h" firstAttribute="leading" secondItem="ktu-Ik-TaQ" secondAttribute="leading" constant="16" id="7yh-p6-TQq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="faR-OS-h6h" secondAttribute="bottom" constant="16" id="HBl-Xn-XPe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wOO-SF-huT" secondAttribute="bottom" constant="16" id="gOp-OO-IM1"/>
+                                                    <constraint firstItem="wOO-SF-huT" firstAttribute="leading" secondItem="faR-OS-h6h" secondAttribute="trailing" constant="16" id="mNc-BP-vAd"/>
+                                                    <constraint firstItem="wOO-SF-huT" firstAttribute="top" secondItem="ktu-Ik-TaQ" secondAttribute="top" constant="16" id="nfI-vQ-DPZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wOO-SF-huT" secondAttribute="trailing" constant="16" id="r4c-QK-IMD"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZq-O8-p7W" customClass="StarsView" customModule="ShareRestaurantApp" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="224" width="311" height="60"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="aLc-E9-SOk"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="O4B-kS-7v2"/>
+                                            <constraint firstAttribute="trailing" secondItem="aZq-O8-p7W" secondAttribute="trailing" constant="16" id="4p2-fK-gEc"/>
+                                            <constraint firstAttribute="trailing" secondItem="nED-4c-Yeg" secondAttribute="trailing" constant="16" id="8AC-gi-6zg"/>
+                                            <constraint firstAttribute="trailing" secondItem="glo-7h-Dxu" secondAttribute="trailing" id="8ec-mB-d7c"/>
+                                            <constraint firstItem="PIk-ll-9m8" firstAttribute="leading" secondItem="Z8o-Xp-8C2" secondAttribute="leading" id="ADx-Mx-f1w"/>
+                                            <constraint firstItem="nED-4c-Yeg" firstAttribute="top" secondItem="62V-Kf-GN2" secondAttribute="bottom" id="BMl-Jn-e4P"/>
+                                            <constraint firstItem="glo-7h-Dxu" firstAttribute="top" secondItem="nED-4c-Yeg" secondAttribute="bottom" id="IHW-Hc-tSX"/>
+                                            <constraint firstAttribute="trailing" secondItem="62V-Kf-GN2" secondAttribute="trailing" id="K0s-RM-NUc"/>
+                                            <constraint firstItem="6O3-dz-A36" firstAttribute="top" secondItem="glo-7h-Dxu" secondAttribute="bottom" constant="8" id="LT7-rI-3wW"/>
+                                            <constraint firstItem="ktu-Ik-TaQ" firstAttribute="top" secondItem="aZq-O8-p7W" secondAttribute="bottom" id="N75-QD-Fuq"/>
+                                            <constraint firstItem="62V-Kf-GN2" firstAttribute="leading" secondItem="Z8o-Xp-8C2" secondAttribute="leading" id="WMs-82-Ybh"/>
+                                            <constraint firstItem="nED-4c-Yeg" firstAttribute="leading" secondItem="Z8o-Xp-8C2" secondAttribute="leading" constant="16" id="aiq-lv-hOR"/>
+                                            <constraint firstItem="62V-Kf-GN2" firstAttribute="top" secondItem="Z8o-Xp-8C2" secondAttribute="top" id="bpN-24-h5Y"/>
+                                            <constraint firstAttribute="bottom" secondItem="ktu-Ik-TaQ" secondAttribute="bottom" id="cnt-nh-k7Z"/>
+                                            <constraint firstItem="aZq-O8-p7W" firstAttribute="top" secondItem="PIk-ll-9m8" secondAttribute="bottom" id="dtf-Dn-YFy"/>
+                                            <constraint firstItem="glo-7h-Dxu" firstAttribute="leading" secondItem="Z8o-Xp-8C2" secondAttribute="leading" id="fY0-aW-10W"/>
+                                            <constraint firstItem="6O3-dz-A36" firstAttribute="leading" secondItem="Z8o-Xp-8C2" secondAttribute="leading" constant="16" id="jzi-ly-usf"/>
+                                            <constraint firstItem="aZq-O8-p7W" firstAttribute="leading" secondItem="Z8o-Xp-8C2" secondAttribute="leading" constant="16" id="mfB-e8-aSv"/>
+                                            <constraint firstItem="ktu-Ik-TaQ" firstAttribute="leading" secondItem="Z8o-Xp-8C2" secondAttribute="leading" id="qfi-55-h2s"/>
+                                            <constraint firstItem="PIk-ll-9m8" firstAttribute="top" secondItem="6O3-dz-A36" secondAttribute="bottom" constant="8" id="qsU-ZF-iJf"/>
+                                            <constraint firstAttribute="trailing" secondItem="PIk-ll-9m8" secondAttribute="trailing" id="skE-kL-pIk"/>
+                                            <constraint firstAttribute="trailing" secondItem="6O3-dz-A36" secondAttribute="trailing" constant="16" id="wJg-zO-ohP"/>
+                                            <constraint firstAttribute="trailing" secondItem="ktu-Ik-TaQ" secondAttribute="trailing" id="yox-F4-3u5"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRh-sF-Z7Z">
-                                        <rect key="frame" x="299" y="256" width="60" height="29"/>
-                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="YpI-Pi-g3e"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="保存"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyx-tN-xrx">
-                                        <rect key="frame" x="16" y="256" width="60" height="29"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="q7z-hE-MVA"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                        <color key="tintColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="閉じる">
-                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.40100599315068491" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="wRh-sF-Z7Z" firstAttribute="top" secondItem="p9N-gQ-bfX" secondAttribute="bottom" constant="16" id="RJp-ZK-0V5"/>
-                                    <constraint firstItem="p9N-gQ-bfX" firstAttribute="centerX" secondItem="FC3-RS-jzZ" secondAttribute="centerX" id="Tlc-6D-em1"/>
-                                    <constraint firstItem="p9N-gQ-bfX" firstAttribute="top" secondItem="FC3-RS-jzZ" secondAttribute="top" constant="120" id="a3z-vc-BrK"/>
-                                    <constraint firstItem="p9N-gQ-bfX" firstAttribute="leading" secondItem="FC3-RS-jzZ" secondAttribute="leading" constant="16" id="bZV-J9-T3s"/>
-                                    <constraint firstItem="kyx-tN-xrx" firstAttribute="top" secondItem="p9N-gQ-bfX" secondAttribute="bottom" constant="16" id="hFe-PC-6dY"/>
-                                    <constraint firstAttribute="trailing" secondItem="wRh-sF-Z7Z" secondAttribute="trailing" constant="16" id="jqE-jK-nza"/>
-                                    <constraint firstItem="kyx-tN-xrx" firstAttribute="leading" secondItem="FC3-RS-jzZ" secondAttribute="leading" constant="16" id="xn8-me-doq"/>
-                                    <constraint firstAttribute="trailing" secondItem="p9N-gQ-bfX" secondAttribute="trailing" constant="16" id="xpp-Ns-oxD"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z8o-Xp-8C2" secondAttribute="trailing" constant="16" id="2Nh-db-PCl"/>
+                                    <constraint firstItem="Z8o-Xp-8C2" firstAttribute="centerX" secondItem="FC3-RS-jzZ" secondAttribute="centerX" id="c8v-o1-hTI"/>
+                                    <constraint firstItem="Z8o-Xp-8C2" firstAttribute="leading" secondItem="FC3-RS-jzZ" secondAttribute="leading" constant="16" id="io7-cV-lOf"/>
+                                    <constraint firstItem="Z8o-Xp-8C2" firstAttribute="centerY" secondItem="FC3-RS-jzZ" secondAttribute="centerY" id="pzY-Op-gT1"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -81,14 +201,15 @@
                         <viewLayoutGuide key="safeArea" id="PQl-Li-Mxj"/>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="kyx-tN-xrx" id="pCh-9s-Aiw"/>
-                        <outlet property="commentTextView" destination="p9N-gQ-bfX" id="nnA-fq-sBg"/>
-                        <outlet property="storeButton" destination="wRh-sF-Z7Z" id="eae-H1-ssn"/>
+                        <outlet property="closeButton" destination="faR-OS-h6h" id="xqp-l9-GV7"/>
+                        <outlet property="commentTextView" destination="6O3-dz-A36" id="AXj-rb-huF"/>
+                        <outlet property="restaurantName" destination="nED-4c-Yeg" id="G6B-rV-Xzg"/>
+                        <outlet property="storeButton" destination="wOO-SF-huT" id="WYZ-Fb-jjf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39q-1H-qrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89" y="151"/>
+            <point key="canvasLocation" x="88.799999999999997" y="150.67466266866569"/>
         </scene>
     </scenes>
 </document>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StarsView" customModule="ShareRestaurantApp" customModuleProvider="target">
+            <connections>
+                <outletCollection property="starsButton" destination="A10-Yj-LGr" collectionClass="NSMutableArray" id="ffj-pA-ZFw"/>
+                <outletCollection property="starsButton" destination="scL-LG-aIB" collectionClass="NSMutableArray" id="57K-jk-4Jw"/>
+                <outletCollection property="starsButton" destination="sEE-QV-Tnx" collectionClass="NSMutableArray" id="Qzg-Lo-88l"/>
+                <outletCollection property="starsButton" destination="V0I-zR-LBo" collectionClass="NSMutableArray" id="dL6-0w-JyW"/>
+                <outletCollection property="starsButton" destination="iwp-md-Ey9" collectionClass="NSMutableArray" id="qSd-4i-o7i"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6S7-Dn-gBG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A10-Yj-LGr">
+                            <rect key="frame" x="0.0" y="0.0" width="65.5" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="☆">
+                                <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="★">
+                                <color key="titleColor" red="0.92941176469999998" green="0.72549019609999998" blue="0.094117647060000004" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scL-LG-aIB">
+                            <rect key="frame" x="77.5" y="0.0" width="65.5" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="☆">
+                                <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="★">
+                                <color key="titleColor" red="0.92941176469999998" green="0.72549019609999998" blue="0.094117647060000004" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEE-QV-Tnx">
+                            <rect key="frame" x="155" y="0.0" width="65" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="☆">
+                                <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="★">
+                                <color key="titleColor" red="0.92941176469999998" green="0.72549019609999998" blue="0.094117647060000004" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-zR-LBo">
+                            <rect key="frame" x="232" y="0.0" width="65.5" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="☆">
+                                <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="★">
+                                <color key="titleColor" red="0.92941176469999998" green="0.72549019609999998" blue="0.094117647060000004" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwp-md-Ey9">
+                            <rect key="frame" x="309.5" y="0.0" width="65.5" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="☆">
+                                <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="★">
+                                <color key="titleColor" red="0.92941176469999998" green="0.72549019609999998" blue="0.094117647060000004" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="V0I-zR-LBo" firstAttribute="width" secondItem="A10-Yj-LGr" secondAttribute="width" id="KbT-hk-IqQ"/>
+                        <constraint firstItem="sEE-QV-Tnx" firstAttribute="width" secondItem="A10-Yj-LGr" secondAttribute="width" id="MvW-P1-Caw"/>
+                        <constraint firstItem="iwp-md-Ey9" firstAttribute="width" secondItem="A10-Yj-LGr" secondAttribute="width" id="edk-pQ-BW2"/>
+                        <constraint firstItem="scL-LG-aIB" firstAttribute="width" secondItem="A10-Yj-LGr" secondAttribute="width" id="uBa-Sn-qhB"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6S7-Dn-gBG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="N0y-ab-kj9"/>
+                <constraint firstItem="6S7-Dn-gBG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Qsv-VN-8Lq"/>
+                <constraint firstAttribute="bottom" secondItem="6S7-Dn-gBG" secondAttribute="bottom" id="a3J-P6-ZmY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6S7-Dn-gBG" secondAttribute="trailing" id="f3t-cZ-tNA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

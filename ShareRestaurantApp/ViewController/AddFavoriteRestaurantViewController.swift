@@ -19,9 +19,19 @@ class AddFavoriteRestaurantViewController: UIViewController {
     
     static let storyboardId = "AddFavoriteRestaurantViewController"
 
+    @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var storeButton: UIButton!
+
+    
+    @IBAction func tappedCloseButton(_ sender: UIButton) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedStoreButton(_ sender: UIButton) {
+        saveFavariteRestaurant()
+    }
     
     var restaurant: Restaurant? = nil
     
@@ -29,23 +39,23 @@ class AddFavoriteRestaurantViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        closeButton.rx.tap.subscribe { [weak self] _ in
-            self?.delegate?.tappedCloseButton()
-        }.disposed(by: disposeBag)
-        
-        storeButton.rx.tap.subscribe { [weak self] _ in
-            guard let restaurant = self?.restaurant else {
-                return
-            }
-            self?.delegate?.tappedStoreButton(restaurant)
-        }.disposed(by: disposeBag)
+        configView()
     }
-    
+    // MARK: - Public Method
     func setRestaurant(selected selectedRestaurant: Restaurant) {
         restaurant = selectedRestaurant
+    }
+    
+    // MARK: - Private Method
+    private func configView() {
+        restaurantName.text = restaurant?.name
+    }
+    
+    private func saveFavariteRestaurant() {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 
 }
