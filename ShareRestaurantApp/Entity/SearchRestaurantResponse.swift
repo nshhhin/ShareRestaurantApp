@@ -38,7 +38,9 @@ struct SearchRestaurantResponse: ResponseEntity {
                               address: data["address"].string,
                               tel: data["tel"].string,
                               openTime: data["opentime"].string,
-                              holiday: data["holiday"].string)
+                              holiday: data["holiday"].string,
+                              numberOfStars: 0,
+                              comment: nil)
         })
     }
     

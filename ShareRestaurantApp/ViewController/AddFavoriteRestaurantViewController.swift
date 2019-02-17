@@ -26,11 +26,17 @@ class AddFavoriteRestaurantViewController: UIViewController {
     
     @IBOutlet weak var starsView: StarsView!
     @IBAction func tappedCloseButton(_ sender: UIButton) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        delegate?.tappedCloseButton()
     }
     
     @IBAction func tappedStoreButton(_ sender: UIButton) {
-        saveFavariteRestaurant()
+        guard var restaurant = restaurant else {
+            // TODO: 来ない想定だが、念のためエラー処理
+            return
+        }
+        restaurant.comment = commentTextView.text
+        restaurant.numberOfStars = starsView.lastSelectedTag ?? 0
+        delegate?.tappedStoreButton(restaurant)
     }
     
     var restaurant: Restaurant? = nil
@@ -56,10 +62,6 @@ class AddFavoriteRestaurantViewController: UIViewController {
         // TODO: 保存していた評価を反映
         starsView.setSelectedStars(nil)
         commentTextView.delegate = self
-    }
-    
-    private func saveFavariteRestaurant() {
-        navigationController?.dismiss(animated: true, completion: nil)
     }
 
 }

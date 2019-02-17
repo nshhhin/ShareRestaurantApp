@@ -21,6 +21,8 @@ struct Restaurant {
     let tel: String?
     let openTime: String?
     let holiday: String?
+    var numberOfStars: Int = 0
+    var comment: String?
     
     func coordinate() -> CLLocationCoordinate2D? {
         guard let latitude = latitude,

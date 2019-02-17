@@ -63,11 +63,20 @@ class CoreDataUseCase {
         let favoResataurant = FavoriteRestaurant(context: context)
         favoResataurant.id = restaurant.id
         favoResataurant.name = restaurant.name
-        favoResataurant.address = restaurant.address
         if let lat = restaurant.longitude, let long = restaurant.longitude {
             favoResataurant.latitude = lat
             favoResataurant.longitude = long
         }
+        favoResataurant.comment = restaurant.comment
+        // TODO: ここは修正
+        favoResataurant.userId = "testUser"
+        favoResataurant.numberOfStars = Int16(restaurant.numberOfStars)
+        // TODO: ジャンルは取得、保存するのか再検討
+        favoResataurant.genre = ""
+        favoResataurant.imageUrlStr = restaurant.imageUrl
+        favoResataurant.address = restaurant.address
+        favoResataurant.telNumber = restaurant.tel
+        
         favoriteRestaurants.append(favoResataurant)
     }
 }
