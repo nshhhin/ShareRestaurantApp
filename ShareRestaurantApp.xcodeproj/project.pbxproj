@@ -43,6 +43,9 @@
 		B9F3438521C6543C0066395A /* GurunaviUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3438421C6543C0066395A /* GurunaviUseCase.swift */; };
 		B9F3438721C655690066395A /* SearchRestaurantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3438621C655690066395A /* SearchRestaurantResponse.swift */; };
 		B9F3438921C6573C0066395A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F3438821C6573C0066395A /* ApiClient.swift */; };
+		B9F58084221993540096A24D /* FavoriteRestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F58082221993540096A24D /* FavoriteRestaurantListViewController.swift */; };
+		B9F58088221993C20096A24D /* FavoriteRestaurantListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9F58087221993C20096A24D /* FavoriteRestaurantListViewController.storyboard */; };
+		B9F5808A2219943B0096A24D /* FavoriteRestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F580892219943B0096A24D /* FavoriteRestaurantListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,9 @@
 		B9F3438421C6543C0066395A /* GurunaviUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GurunaviUseCase.swift; sourceTree = "<group>"; };
 		B9F3438621C655690066395A /* SearchRestaurantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRestaurantResponse.swift; sourceTree = "<group>"; };
 		B9F3438821C6573C0066395A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		B9F58082221993540096A24D /* FavoriteRestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestaurantListViewController.swift; sourceTree = "<group>"; };
+		B9F58087221993C20096A24D /* FavoriteRestaurantListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteRestaurantListViewController.storyboard; sourceTree = "<group>"; };
+		B9F580892219943B0096A24D /* FavoriteRestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestaurantListViewModel.swift; sourceTree = "<group>"; };
 		BE81BE71FF3C7E6C925B0FA6 /* Pods-ShareRestaurantAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareRestaurantAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareRestaurantAppUITests/Pods-ShareRestaurantAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFB7233BA805BCF681F8E0EC /* Pods-ShareRestaurantApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareRestaurantApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareRestaurantApp/Pods-ShareRestaurantApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +234,8 @@
 				B92CA5CB21980E8000E89A53 /* MapViewController.swift */,
 				B938B37A2211B0D500D57962 /* AddFavoriteRestaurantViewController.swift */,
 				B938B37E2211B0F800D57962 /* AddFavoriteRestaurantViewController.storyboard */,
+				B9F58082221993540096A24D /* FavoriteRestaurantListViewController.swift */,
+				B9F58087221993C20096A24D /* FavoriteRestaurantListViewController.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -247,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				B97C1B7221D013A40069D55A /* MapViewModel.swift */,
+				B9F580892219943B0096A24D /* FavoriteRestaurantListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -412,6 +421,7 @@
 				B938B37F2211B0F900D57962 /* AddFavoriteRestaurantViewController.storyboard in Resources */,
 				B92CA5D421980E8000E89A53 /* LaunchScreen.storyboard in Resources */,
 				B92CA5D121980E8000E89A53 /* Assets.xcassets in Resources */,
+				B9F58088221993C20096A24D /* FavoriteRestaurantListViewController.storyboard in Resources */,
 				B92CA5CF21980E8000E89A53 /* Main.storyboard in Resources */,
 				B919BEEC2215BC3B0023FFAF /* StarsView.xib in Resources */,
 				B938B37922117AE800D57962 /* RestaurantInfoView.xib in Resources */,
@@ -571,6 +581,7 @@
 				B938B36C2211456D00D57962 /* FavoriteRestaurant+CoreDataClass.swift in Sources */,
 				B938B355220F042A00D57962 /* LocationUseCase.swift in Sources */,
 				B938B35D2210341800D57962 /* LocationError.swift in Sources */,
+				B9F58084221993540096A24D /* FavoriteRestaurantListViewController.swift in Sources */,
 				B919BEEA2215BC1F0023FFAF /* StarsView.swift in Sources */,
 				B9F3438721C655690066395A /* SearchRestaurantResponse.swift in Sources */,
 				B938B36D2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift in Sources */,
@@ -578,6 +589,7 @@
 				B9F3438321C64B630066395A /* SearchRestaurantRequest.swift in Sources */,
 				B9F3438521C6543C0066395A /* GurunaviUseCase.swift in Sources */,
 				B981607021DF4C260000C3AF /* Storyboard.swift in Sources */,
+				B9F5808A2219943B0096A24D /* FavoriteRestaurantListViewModel.swift in Sources */,
 				B9F3437F21C646960066395A /* RequestEntity.swift in Sources */,
 				B981607221DF4CCB0000C3AF /* UIView+Nib.swift in Sources */,
 				B97C1B7121CE29530069D55A /* ApiError.swift in Sources */,
