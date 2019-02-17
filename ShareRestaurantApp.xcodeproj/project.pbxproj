@@ -30,6 +30,8 @@
 		B938B37922117AE800D57962 /* RestaurantInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B938B37822117AE800D57962 /* RestaurantInfoView.xib */; };
 		B938B37C2211B0D500D57962 /* AddFavoriteRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938B37A2211B0D500D57962 /* AddFavoriteRestaurantViewController.swift */; };
 		B938B37F2211B0F900D57962 /* AddFavoriteRestaurantViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B938B37E2211B0F800D57962 /* AddFavoriteRestaurantViewController.storyboard */; };
+		B94FD0E52219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94FD0E32219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.swift */; };
+		B94FD0E62219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94FD0E42219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.xib */; };
 		B97C1B7121CE29530069D55A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97C1B7021CE29530069D55A /* ApiError.swift */; };
 		B97C1B7321D013A40069D55A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97C1B7221D013A40069D55A /* MapViewModel.swift */; };
 		B981607021DF4C260000C3AF /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B981606F21DF4C260000C3AF /* Storyboard.swift */; };
@@ -99,6 +101,8 @@
 		B938B37822117AE800D57962 /* RestaurantInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantInfoView.xib; sourceTree = "<group>"; };
 		B938B37A2211B0D500D57962 /* AddFavoriteRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteRestaurantViewController.swift; sourceTree = "<group>"; };
 		B938B37E2211B0F800D57962 /* AddFavoriteRestaurantViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFavoriteRestaurantViewController.storyboard; sourceTree = "<group>"; };
+		B94FD0E32219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		B94FD0E42219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteRestaurantTableViewCell.xib; sourceTree = "<group>"; };
 		B97C1B7021CE29530069D55A /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B97C1B7221D013A40069D55A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B981606F21DF4C260000C3AF /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				B938B37822117AE800D57962 /* RestaurantInfoView.xib */,
 				B919BEE92215BC1F0023FFAF /* StarsView.swift */,
 				B919BEEB2215BC3B0023FFAF /* StarsView.xib */,
+				B94FD0E32219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.swift */,
+				B94FD0E42219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B94FD0E62219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.xib in Resources */,
 				B938B37F2211B0F900D57962 /* AddFavoriteRestaurantViewController.storyboard in Resources */,
 				B92CA5D421980E8000E89A53 /* LaunchScreen.storyboard in Resources */,
 				B92CA5D121980E8000E89A53 /* Assets.xcassets in Resources */,
@@ -584,6 +591,7 @@
 				B9F58084221993540096A24D /* FavoriteRestaurantListViewController.swift in Sources */,
 				B919BEEA2215BC1F0023FFAF /* StarsView.swift in Sources */,
 				B9F3438721C655690066395A /* SearchRestaurantResponse.swift in Sources */,
+				B94FD0E52219A46C00A7BC2C /* FavoriteRestaurantTableViewCell.swift in Sources */,
 				B938B36D2211456D00D57962 /* FavoriteRestaurant+CoreDataProperties.swift in Sources */,
 				B938B36322113BB100D57962 /* FavoriteRestaurants.xcdatamodeld in Sources */,
 				B9F3438321C64B630066395A /* SearchRestaurantRequest.swift in Sources */,
