@@ -11,6 +11,10 @@ import RxSwift
 
 final class FavoriteRestaurantListViewModel {
     
+    var bindFavoriteRestaurants: BehaviorSubject<[FavoriteRestaurant]> {
+        return CoreDataUseCase.shared.bindFavoriteRestaurantsData
+    }
+    
     func loadFavoriteRestaurant() {
         CoreDataUseCase.shared.fetchContext()
     }

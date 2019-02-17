@@ -29,7 +29,7 @@ class FavoriteRestaurantTableViewCell: UITableViewCell {
         thumbnailView.af_cancelImageRequest()
         thumbnailView.image = nil
         nameLabel.text = nil
-        commentLabel.text = nil
+        commentLabel.attributedText = nil
         starsView.setSelectedStars(nil)
     }
 
@@ -39,7 +39,9 @@ class FavoriteRestaurantTableViewCell: UITableViewCell {
             thumbnailView.af_setImage(withURL: url)
         }
         nameLabel.text = restaurant.name
-        commentLabel.text = restaurant.comment
+        if let comment = restaurant.comment {
+            commentLabel.attributedText = NSAttributedString(string: comment)
+        }
         starsView.setSelectedStars(restaurant.numberOfStars)
     }
     
@@ -47,7 +49,7 @@ class FavoriteRestaurantTableViewCell: UITableViewCell {
         starsView.isUserInteractionEnabled = false
         thumbnailView.image = nil
         nameLabel.text = nil
-        commentLabel.text = nil
+        commentLabel.attributedText = nil
     }
     
 }

@@ -59,7 +59,13 @@ class MapViewController: UIViewController {
     }
     
     @objc func onClickFavoriteRestaurant() {
-        
+        let storyboard = UIStoryboard(name: FavoriteRestaurantListViewController.storyboardId,
+                                      bundle: nil)
+        guard let vc = storyboard.instantiateInitialViewController()
+            as? FavoriteRestaurantListViewController else {
+                return
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Life Cycle
