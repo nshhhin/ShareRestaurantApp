@@ -33,14 +33,9 @@ struct SearchRestaurantResponse: ResponseEntity {
                               pr: data["pr"]["pr_short"].string,
                               latitude: data["latitude"].floatValue,
                               longitude: data["longitude"].floatValue,
-                              mobileUrl: data["url_mobile"].string,
                               imageUrl: imgUrl,
                               address: data["address"].string,
-                              tel: data["tel"].string,
-                              openTime: data["opentime"].string,
-                              holiday: data["holiday"].string,
-                              numberOfStars: 0,
-                              comment: nil)
+                              tel: data["tel"].string)
         })
     }
     
