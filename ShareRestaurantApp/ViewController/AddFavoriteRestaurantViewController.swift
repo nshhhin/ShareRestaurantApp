@@ -77,3 +77,18 @@ extension AddFavoriteRestaurantViewController: UITextViewDelegate {
         return false
     }
 }
+
+extension AddFavoriteRestaurantViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard text == "\n" else {
+            return true
+        }
+        commentTextView.resignFirstResponder()
+        return false
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+    }
+}
