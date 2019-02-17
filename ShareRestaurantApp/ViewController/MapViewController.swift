@@ -58,6 +58,10 @@ class MapViewController: UIViewController {
         searchRestaurant(centerLocation)
     }
     
+    @objc func onClickFavoriteRestaurant() {
+        
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +82,12 @@ class MapViewController: UIViewController {
         searchCurrentLocationButton.setShadow()
         searchCenterLocationButton.setShadow()
         restaurantInfoView.setShadow()
+        
+        let favoriteListButton = UIBarButtonItem(title: "お気に入り",
+                                                 style: .done,
+                                                 target: self,
+                                                 action: #selector(onClickFavoriteRestaurant))
+        navigationItem.setLeftBarButton(favoriteListButton, animated: false)
         
         viewModel.bindFavoriteRestaurants
             .asDriver(onErrorDriveWith: Driver.empty())
