@@ -10,9 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class StarsView: UIView {
+@IBDesignable class StarsView: UIView {
     
     @IBOutlet var starsButton: [UIButton]!
+    @IBOutlet weak var stackView: UIStackView!
     
     private let selectStarColor = UIColor(red: 237, green: 185, blue: 24, alpha: 1.0)
     
@@ -20,7 +21,19 @@ class StarsView: UIView {
     
     private let disposeBag = DisposeBag()
     
+    private let defaultStarButtonSize: CGFloat = 30.0
+    
+    private let defaultStackViewSpacing: CGFloat = 12.0
+    
     var lastSelectedTag: Int? = nil
+    
+    @IBInspectable var starButtonSize: CGFloat = 30.0 {
+        didSet (newValue) {
+            for starButton in starsButton {
+                starButton.titleLabel?.font = UIFont.systemFont(ofSize: newValue)
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

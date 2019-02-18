@@ -16,20 +16,27 @@ final class FavoriteRestaurantListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Private Properties
     private let viewModel = FavoriteRestaurantListViewModel()
     
     private let disposeBag = DisposeBag()
     
     private var favoriteRestaurants = [Restaurant]()
     
+    // MARK: - Fileprivate Properties
+    fileprivate let cellHeight: CGFloat = 130
+    
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
     }
     
+    // MARK: - Private Methods
     private func configView() {
         tableView.register(UINib(nibName: "FavoriteRestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: FavoriteRestaurantTableViewCell.reuseIdentifier)
         tableView.dataSource = self
+        tableView.delegate = self
         
         viewModel.bindFavoriteRestaurants
             .asDriver(onErrorDriveWith: Driver.empty())
@@ -44,6 +51,7 @@ final class FavoriteRestaurantListViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDataSource
 extension FavoriteRestaurantListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,5 +62,13 @@ extension FavoriteRestaurantListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteRestaurantTableViewCell.reuseIdentifier) as! FavoriteRestaurantTableViewCell
         cell.setRestaurant(favoriteRestaurants[indexPath.row])
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension FavoriteRestaurantListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeight
     }
 }

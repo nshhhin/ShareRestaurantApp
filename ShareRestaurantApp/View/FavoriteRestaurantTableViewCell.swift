@@ -11,7 +11,7 @@ import AlamofireImage
 
 class FavoriteRestaurantTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier: String = "FavoriteRestaurantTableViewCell"
+    static let reuseIdentifier: String = "favoriteRestaurantCell"
     
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
