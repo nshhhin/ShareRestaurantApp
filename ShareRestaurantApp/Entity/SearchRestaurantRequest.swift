@@ -36,19 +36,25 @@ struct SearchRestaurantRequest: RequestEntity {
     
     let range: Range
     
-    let hitCount: Int
+    let hitPerPage: Int
     
     let freeword: String?
     
     let freewordCondition: FreewordCondition
     
-    init(name: String?, latitude: Float, longitude: Float, range: Range = Range.threeHundred, hitCount: Int = 30, freeword: String?, freewordCondition: FreewordCondition = FreewordCondition.and) {
+    init(name: String?,
+         latitude: Float,
+         longitude: Float,
+         range: Range = Range.threeHundred,
+         hitPerPage: Int = 45,
+         freeword: String?,
+         freewordCondition: FreewordCondition = FreewordCondition.and) {
         self.keyid = GURUNAVI_API_KEY
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
         self.range = range
-        self.hitCount = hitCount
+        self.hitPerPage = hitPerPage
         self.freeword = freeword
         self.freewordCondition = freewordCondition
     }
@@ -71,6 +77,8 @@ struct SearchRestaurantRequest: RequestEntity {
         if let freeword = freeword {
             params["freeword"] = freeword
         }
+        
+        params["hit_per_page"] = hitPerPage
         
         params["freeword_condition"] = freewordCondition.rawValue
         
