@@ -35,6 +35,8 @@ class FavoriteRestaurantMapViewController: UIViewController {
     
     // MARK: - Private Methods
     private func configView() {
+        restaurantInfoView.starsView.isUserInteractionEnabled = false
+        
         guard let restaurant = restaurant,
             let coordinate = restaurant.coordinate() else {
                 restaurantInfoView.isHidden = true

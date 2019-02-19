@@ -32,6 +32,18 @@ final class FavoriteRestaurantListViewController: UIViewController {
         configView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.indexPathsForSelectedRows?.forEach({ indexPath in
+            tableView.deselectRow(at: indexPath, animated: true)
+        })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.flashScrollIndicators()
+    }
+    
     // MARK: - Private Methods
     private func configView() {
         tableView.register(UINib(nibName: "FavoriteRestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: FavoriteRestaurantTableViewCell.reuseIdentifier)
