@@ -35,7 +35,7 @@ class AddFavoriteRestaurantViewController: UIViewController {
             return
         }
         restaurant.comment = commentTextView.text
-        restaurant.numberOfStars = starsView.lastSelectedTag ?? 0
+        restaurant.numberOfStars = starsView.lastSelectedTag
         delegate?.tappedStoreButton(restaurant)
     }
     
@@ -60,7 +60,7 @@ class AddFavoriteRestaurantViewController: UIViewController {
     private func configView() {
         restaurantName.text = restaurant?.name
         // TODO: 保存していた評価を反映
-        starsView.setSelectedStars(nil)
+        starsView.setSelectedStars(0)
         commentTextView.delegate = self
     }
 

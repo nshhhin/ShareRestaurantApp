@@ -13,9 +13,8 @@ class RestaurantInfoView: UIView {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var numberOfStarsLabel: UILabel!
+    @IBOutlet weak var starsView: StarsView!
     @IBOutlet weak var storeButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     
@@ -39,9 +38,10 @@ class RestaurantInfoView: UIView {
         }
         nameLabel.text = restaurant.name
         addressLabel.text = restaurant.address
+        starsView.setSelectedStars(restaurant.numberOfStars)
     }
     
-    func resetData() {
+    private func resetData() {
         restaurantData = nil
         imageView.af_cancelImageRequest()
         imageView.image = nil
@@ -53,5 +53,7 @@ class RestaurantInfoView: UIView {
         let view = Bundle.main.loadNibNamed("RestaurantInfoView", owner: self, options: nil)?.first as! UIView
         view.frame = bounds
         addSubview(view)
+        
+        starsView.setStarSize(30.0)
     }
 }

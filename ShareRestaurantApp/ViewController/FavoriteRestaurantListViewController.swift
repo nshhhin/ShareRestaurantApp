@@ -71,4 +71,18 @@ extension FavoriteRestaurantListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < favoriteRestaurants.count else {
+            return
+        }
+        let storyboard = UIStoryboard(name: FavoriteRestaurantMapViewController.storyboardId,
+                                      bundle: nil)
+        guard let vc = storyboard.instantiateInitialViewController()
+            as? FavoriteRestaurantMapViewController else {
+                return
+        }
+        vc.setFavoriteRestaurant(favoriteRestaurants[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

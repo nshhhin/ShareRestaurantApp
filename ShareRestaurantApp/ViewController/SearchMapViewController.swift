@@ -1,5 +1,5 @@
 //
-//  MapViewController.swift
+//  SearchMapViewController.swift
 //  ShareRestaurantApp
 //
 //  Created by 仲西渉 on 2018/11/11.
@@ -12,7 +12,7 @@ import CoreLocation
 import RxSwift
 import RxCocoa
 
-class MapViewController: UIViewController {
+class SearchMapViewController: UIViewController {
     
     // MARK: IBOutlet
     @IBOutlet weak var searchCurrentLocationButton: UIButton!
@@ -88,6 +88,7 @@ class MapViewController: UIViewController {
         searchCurrentLocationButton.setShadow()
         searchCenterLocationButton.setShadow()
         restaurantInfoView.setShadow()
+        restaurantInfoView.starsView.isUserInteractionEnabled = false
         
         let favoriteListButton = UIBarButtonItem(title: "お気に入り",
                                                  style: .done,
@@ -113,7 +114,7 @@ class MapViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    /// Mapのの初期設定
+    /// Mapの初期設定
     private func configMap() {
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
@@ -167,6 +168,7 @@ class MapViewController: UIViewController {
     }
     /// レストラン情報を元にマーカーを表示
     private func showMarker() {
+        mapView.clear()
         for restaurant in restaurants {
             guard let position = restaurant.coordinate() else {
                 continue
@@ -238,7 +240,7 @@ class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController: GMSMapViewDelegate {
+extension SearchMapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         mapView.animate(toLocation: marker.position)
@@ -252,7 +254,7 @@ extension MapViewController: GMSMapViewDelegate {
     }
 }
 
-extension MapViewController: AddFavoriteRestaurantViewControllerDelegate {
+extension SearchMapViewController: AddFavoriteRestaurantViewControllerDelegate {
     
     func tappedCloseButton() {
         navigationController?.dismiss(animated: true, completion: nil)

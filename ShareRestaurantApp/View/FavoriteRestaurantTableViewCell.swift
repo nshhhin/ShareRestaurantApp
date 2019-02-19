@@ -30,7 +30,7 @@ class FavoriteRestaurantTableViewCell: UITableViewCell {
         thumbnailView.image = nil
         nameLabel.text = nil
         commentLabel.attributedText = nil
-        starsView.setSelectedStars(nil)
+        starsView.setSelectedStars(0)
     }
 
     func setRestaurant(_ restaurant: Restaurant) {

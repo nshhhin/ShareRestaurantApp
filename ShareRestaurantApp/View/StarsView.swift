@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-@IBDesignable class StarsView: UIView {
+class StarsView: UIView {
     
     @IBOutlet var starsButton: [UIButton]!
     @IBOutlet weak var stackView: UIStackView!
@@ -21,19 +21,11 @@ import RxCocoa
     
     private let disposeBag = DisposeBag()
     
-    private let defaultStarButtonSize: CGFloat = 30.0
+    private let notSelectedNum: Int = 0
     
-    private let defaultStackViewSpacing: CGFloat = 12.0
+    private let firstStarsButtonTagNum: Int = 1
     
-    var lastSelectedTag: Int? = nil
-    
-    @IBInspectable var starButtonSize: CGFloat = 30.0 {
-        didSet (newValue) {
-            for starButton in starsButton {
-                starButton.titleLabel?.font = UIFont.systemFont(ofSize: newValue)
-            }
-        }
-    }
+    var lastSelectedTag: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,12 +37,14 @@ import RxCocoa
         configView()
     }
     
-    func setSelectedStars(_ tagNum: Int?) {
-        guard let tagNum = tagNum else {
-            lastSelectedTag = nil
-            return
-        }
+    func setSelectedStars(_ tagNum: Int) {
         setSelectStarsLayout(tagNum)
+    }
+    
+    func setStarSize(_ size: CGFloat = 30.0) {
+        for starButton in starsButton {
+            starButton.titleLabel?.font = UIFont.systemFont(ofSize: size)
+        }
     }
     
     private func configView() {
@@ -67,18 +61,18 @@ import RxCocoa
     }
     
     private func selectedStars(_ selectButton: UIButton) {
-        guard let lastSelectTag = lastSelectedTag else {
+        guard lastSelectedTag != notSelectedNum else {
             setSelectStarsLayout(selectButton.tag)
             return
         }
         
-        guard lastSelectTag != selectButton.tag else {
+        guard lastSelectedTag != selectButton.tag else {
             // 前回と同じボタンをタップ
             resetStars()
             return
         }
         
-        switch lastSelectTag < selectButton.tag {
+        switch lastSelectedTag < selectButton.tag {
         case true:
             setSelectStarsLayout(selectButton.tag)
         case false:
@@ -89,22 +83,24 @@ import RxCocoa
     /// 指定されたTag(= index)までを選択状態にする
     private func setSelectStarsLayout(_ tag: Int) {
         lastSelectedTag = tag
-        for index in 0 ... tag {
+        guard tag != notSelectedNum else {
+            return
+        }
+        for buttonTag in firstStarsButtonTagNum ... tag {
+            let index = buttonTag - 1
             starsButton[index].isSelected = true
         }
     }
     /// 全てを未選択状態にする
     private func resetStars() {
-        lastSelectedTag = nil
+        lastSelectedTag = notSelectedNum
         for button in starsButton {
             button.isSelected = false
         }
     }
     /// 指定されたTag(= index)以降を未選択状態にする
     private func resetStarsAfter(tag: Int) {
-        lastSelectedTag = tag
-        let selectNextTag = tag + 1
-        for index in selectNextTag ..< starsButton.count {
+        for index in tag ..< starsButton.count {
             starsButton[index].isSelected = false
         }
     }

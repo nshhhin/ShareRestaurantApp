@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7lU-7r-OeN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorite Restaurant Map View Controller-->
+        <scene sceneID="HcH-mC-POf">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteRestaurantMapViewController" id="7lU-7r-OeN" customClass="FavoriteRestaurantMapViewController" customModule="ShareRestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jg2-co-Tg8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpl-ID-9BG" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9Q-0R-tFk" customClass="RestaurantInfoView" customModule="ShareRestaurantApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="531" width="343" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="rDC-k9-zCv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Zpl-ID-9BG" secondAttribute="bottom" id="0W2-Xc-tMG"/>
+                            <constraint firstItem="E9Q-0R-tFk" firstAttribute="leading" secondItem="FAE-ad-UPp" secondAttribute="leading" constant="16" id="4ef-3R-fJr"/>
+                            <constraint firstItem="FAE-ad-UPp" firstAttribute="trailing" secondItem="E9Q-0R-tFk" secondAttribute="trailing" constant="16" id="5sX-IM-We0"/>
+                            <constraint firstItem="Zpl-ID-9BG" firstAttribute="top" secondItem="FAE-ad-UPp" secondAttribute="top" id="QA9-TW-T5R"/>
+                            <constraint firstItem="FAE-ad-UPp" firstAttribute="trailing" secondItem="Zpl-ID-9BG" secondAttribute="trailing" id="bH9-3F-jWh"/>
+                            <constraint firstItem="Zpl-ID-9BG" firstAttribute="leading" secondItem="FAE-ad-UPp" secondAttribute="leading" id="g7n-Ul-fR7"/>
+                            <constraint firstItem="FAE-ad-UPp" firstAttribute="bottom" secondItem="E9Q-0R-tFk" secondAttribute="bottom" constant="16" id="ksV-TA-Tyf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FAE-ad-UPp"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Zpl-ID-9BG" id="kE4-yk-Meg"/>
+                        <outlet property="restaurantInfoView" destination="E9Q-0R-tFk" id="ubO-x4-C41"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzK-DZ-DxP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-9" y="176"/>
+        </scene>
+    </scenes>
+</document>

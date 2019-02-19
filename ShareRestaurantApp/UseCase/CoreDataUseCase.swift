@@ -63,7 +63,7 @@ class CoreDataUseCase {
         let favoResataurant = FavoriteRestaurant(context: context)
         favoResataurant.id = restaurant.id
         favoResataurant.name = restaurant.name
-        if let lat = restaurant.longitude, let long = restaurant.longitude {
+        if let lat = restaurant.latitude, let long = restaurant.longitude {
             favoResataurant.latitude = lat
             favoResataurant.longitude = long
         }
