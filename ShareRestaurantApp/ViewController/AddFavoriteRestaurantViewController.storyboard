@@ -12,6 +12,7 @@
     <customFonts key="customFonts">
         <array key="HiraginoKakuGothic.ttc">
             <string>HiraginoSans-W3</string>
+            <string>HiraginoSans-W6</string>
         </array>
     </customFonts>
     <scenes>
@@ -194,7 +195,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="FC3-RS-jzZ" secondAttribute="bottom" id="8nd-z8-CPS"/>
                             <constraint firstItem="PQl-Li-Mxj" firstAttribute="trailing" secondItem="FC3-RS-jzZ" secondAttribute="trailing" id="LNL-M9-gHd"/>

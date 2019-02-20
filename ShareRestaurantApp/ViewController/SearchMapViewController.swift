@@ -88,7 +88,7 @@ class SearchMapViewController: UIViewController {
         searchCurrentLocationButton.setShadow()
         searchCenterLocationButton.setShadow()
         restaurantInfoView.setShadow()
-        restaurantInfoView.starsView.isUserInteractionEnabled = false
+        restaurantInfoView.starsView.isHidden = true
         
         let favoriteListButton = UIBarButtonItem(title: "お気に入り",
                                                  style: .done,

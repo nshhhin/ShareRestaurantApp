@@ -43,6 +43,8 @@ class FavoriteRestaurantMapViewController: UIViewController {
                 return
         }
         restaurantInfoView.setShadow()
+        restaurantInfoView.closeButton.isHidden = true
+        restaurantInfoView.storeButton.isHidden = true
         restaurantInfoView.setData(restaurant)
         
         mapView.isMyLocationEnabled = true
