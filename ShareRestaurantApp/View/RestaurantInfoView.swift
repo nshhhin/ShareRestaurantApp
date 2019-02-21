@@ -20,6 +20,8 @@ class RestaurantInfoView: UIView {
     
     var restaurantData: Restaurant? = nil
     
+    var isSearch: Bool = true
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
@@ -37,7 +39,12 @@ class RestaurantInfoView: UIView {
             imageView.af_setImage(withURL: url)
         }
         nameLabel.text = restaurant.name
-        addressLabel.text = restaurant.address
+        if isSearch {
+            addressLabel.text = restaurant.address
+        } else {
+            addressLabel.text = restaurant.comment
+        }
+        
         starsView.setSelectedStars(restaurant.numberOfStars)
     }
     

@@ -50,6 +50,20 @@ final class FavoriteRestaurantListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        let mapButton = UIBarButtonItem(title: "地図",
+                                        style: .done,
+                                        target: self,
+                                        action: nil)
+        navigationItem.setRightBarButton(mapButton, animated: false)
+        
+        mapButton.rx.tap
+            .subscribe({ [weak self] _ in
+                guard let restaurants = self?.favoriteRestaurants else {
+                    return
+                }
+                self?.transitionMapView(restaurants: restaurants)
+        }).disposed(by: disposeBag)
+        
         viewModel.bindFavoriteRestaurants
             .asDriver(onErrorDriveWith: Driver.empty())
             .drive(onNext: { [weak self] favoRestaurants in
@@ -59,6 +73,15 @@ final class FavoriteRestaurantListViewController: UIViewController {
                 self?.favoriteRestaurants = restaurants
                 self?.tableView.reloadData()
             }).disposed(by: disposeBag)
+    }
+    
+    fileprivate func transitionMapView(restaurants: [Restaurant]) {
+        let storyboard = UIStoryboard(name: FavoriteRestaurantMapViewController.storyboardId, bundle: nil)
+        guard let vc = storyboard.instantiateInitialViewController() as? FavoriteRestaurantMapViewController else {
+            return
+        }
+        vc.setFavoriteRestaurant(restaurants)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
@@ -88,13 +111,6 @@ extension FavoriteRestaurantListViewController: UITableViewDelegate {
         guard indexPath.row < favoriteRestaurants.count else {
             return
         }
-        let storyboard = UIStoryboard(name: FavoriteRestaurantMapViewController.storyboardId,
-                                      bundle: nil)
-        guard let vc = storyboard.instantiateInitialViewController()
-            as? FavoriteRestaurantMapViewController else {
-                return
-        }
-        vc.setFavoriteRestaurant(favoriteRestaurants[indexPath.row])
-        navigationController?.pushViewController(vc, animated: true)
+        transitionMapView(restaurants: [favoriteRestaurants[indexPath.row]])
     }
 }
